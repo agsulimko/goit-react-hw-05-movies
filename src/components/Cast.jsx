@@ -43,6 +43,7 @@ const Cast = () => {
             </div>
           );
         }
+        return null;
       })}
     </div>
   );
