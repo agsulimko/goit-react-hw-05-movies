@@ -13,7 +13,7 @@ const Movies = (prev) => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [queryMovies, setQueryMovies] = useState("");
-  setQueryMovies(query);
+  // const [query, setQuery] = useState('');
 
   const fetchMovies = async () => {
     try {
@@ -26,41 +26,42 @@ const Movies = (prev) => {
   };
   //   console.log(movies);
   useEffect(() => {
+    setQueryMovies(query);
     fetchMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryMovies]);
   return (
     <div className="">
-      <form className="form" onSubmit="{handleSubmit}">
-        {/* // <form className="form" onSubmit={handleSubmit}> */}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <TextField
-            //  className="input"
-            type="text"
-            //  autocomplete="off"
-            //  autofocus
-            //  placeholder="Search images and photos"
-            name="title"
-            size="small"
-            sx={{ m: 1, width: "35ch" }}
-            style={{ backgroundColor: "white" }}
-            className="form-control"
-            onChange={(event) => setSearchParams({ query: event.target.value })}
-            value={query}
-            id="input-with-sx"
-            label="Search movies"
-            variant="outlined"
-            margin="dense"
-          />
-        </Box>
-        {/* <button onClick={() => setSearchParams({ c: "HELLO" })}>Button</button> */}
-      </form>
+      {/* <form className="form" onSubmit="{handleSubmit}"> */}
+      {/* // <form className="form" onSubmit={handleSubmit}> */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <TextField
+          //  className="input"
+          type="text"
+          //  autocomplete="off"
+          //  autofocus
+          //  placeholder="Search images and photos"
+          name="title"
+          size="small"
+          sx={{ m: 1, width: "35ch" }}
+          style={{ backgroundColor: "white" }}
+          className="form-control"
+          onChange={(event) => setSearchParams({ query: event.target.value })}
+          value={query || ""} // Устанавливаем пустую строку, если значение query равно null
+          id="input-with-sx"
+          label="Search movies"
+          variant="outlined"
+          margin="dense"
+        />
+      </Box>
+      {/* <button onClick={() => setSearchParams({ c: "HELLO" })}>Button</button> */}
+      {/* </form> */}
 
       {/* <FormSerch /> */}
       {/* <div className={css.homeMovies}> */}
