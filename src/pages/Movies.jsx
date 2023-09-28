@@ -12,8 +12,6 @@ const Movies = (prev) => {
   console.log(query);
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
-  const [queryMovies, setQueryMovies] = useState("");
-  // const [query, setQuery] = useState('');
 
   const fetchMovies = async () => {
     try {
@@ -26,10 +24,9 @@ const Movies = (prev) => {
   };
   //   console.log(movies);
   useEffect(() => {
-    setQueryMovies(query);
     fetchMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryMovies]);
+  }, [query]);
   return (
     <div className="">
       {/* <form className="form" onSubmit="{handleSubmit}"> */}
