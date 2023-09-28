@@ -54,11 +54,12 @@ export const getReviews = async moveId => {
 // ('https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=0649efc971b913d6bfebf656f94b5c92');
 
 export const getAllMovies = async value => {
+  console.log(value);
   const { data } = await axios(`3/search/movie`, {
     params: {
       api_key: '0649efc971b913d6bfebf656f94b5c92',
       // language: 'en-US',
-      // original_language: 'en-US',
+      original_language: 'en-US',
       query: `Jack + Reacher`,
       // query: `${value}`,
     },

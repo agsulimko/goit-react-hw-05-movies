@@ -27,7 +27,7 @@ const FormSerch = (props) => {
   const [error, setError] = useState(null);
   const fetchMovies = async () => {
     try {
-      const { results } = await getAllMovie();
+      const { results } = await getAllMovies();
       //   console.log(results);
       setMovies((prevMovies) => [...results]);
     } catch (err) {
