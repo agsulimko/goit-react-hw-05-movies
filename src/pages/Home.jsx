@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getAllMoviesTrending } from "../api/api";
 import { Link } from "react-router-dom";
 import css from "./Home.module.css";
-// const array = ["a", "b", "c", "d", "e"];
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);

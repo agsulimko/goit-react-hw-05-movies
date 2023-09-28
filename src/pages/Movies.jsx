@@ -31,10 +31,8 @@ const Movies = (prev) => {
           // console.log(mov.id);
           // console.log(index);
           return (
-            <li>
-              <Link key={index} to={`${mov.id}`}>
-                {mov.title}
-              </Link>
+            <li key={index}>
+              <Link to={`${mov.id}`}>{mov.title}</Link>
             </li>
           );
         })}

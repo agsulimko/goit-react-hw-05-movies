@@ -1,26 +1,48 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
+
 const FormSerch = (props) => {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // console.log(searchParams);
-  const [inputQuery, setInputQuery] = useState("");
-  const handleInputQuery = (e) => {
-    setInputQuery(e.currentTarget.value.toLowerCase());
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (inputQuery.trim() === "") {
-      alert("Enter your request");
-      return;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query");
+
+  // const [inputQuery, setInputQuery] = useState("");
+  // const handleInputQuery = (e) => {
+  //   setInputQuery(e.currentTarget.value.toLowerCase());
+  // };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (inputQuery.trim() === "") {
+  //     alert("Enter your request");
+  //     return;
+  //   }
+  //   props.onSubmit(inputQuery.trim());
+  //   setInputQuery("");
+  // };
+
+  // console.log(inputQuery);
+  const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
+  const fetchMovies = async () => {
+    try {
+      const { results } = await getAllMovie();
+      //   console.log(results);
+      setMovies((prevMovies) => [...results]);
+    } catch (err) {
+      setError(error.message);
     }
-    props.onSubmit(inputQuery.trim());
-    setInputQuery("");
   };
-  console.log(inputQuery);
+
+  useEffect(() => {
+    fetchMovies();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit="{handleSubmit}">
         {/* // <form className="form" onSubmit={handleSubmit}> */}
         <Box
           sx={{
@@ -40,8 +62,8 @@ const FormSerch = (props) => {
             sx={{ m: 1, width: "35ch" }}
             style={{ backgroundColor: "white" }}
             className="form-control"
-            onChange={handleInputQuery}
-            value={inputQuery}
+            onChange={(event) => setSearchParams({ query: event.target.value })}
+            value={query}
             id="input-with-sx"
             label="Search movies"
             variant="outlined"
