@@ -49,6 +49,8 @@ const MoviesDetails = () => {
     <>
       <div>
         {/* Cтраница MoviesDetails : {moveId} */}
+
+        <Link to="movies"> -Go back</Link>
         <img
           className="center-block img-responsive"
           width="240px"
