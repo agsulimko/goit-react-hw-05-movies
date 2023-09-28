@@ -9,7 +9,7 @@ import { useSearchParams } from "react-router-dom";
 const Movies = (prev) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query");
-
+  console.log(query);
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [queryMovies, setQueryMovies] = useState("");
