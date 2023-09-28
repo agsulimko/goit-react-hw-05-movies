@@ -26,7 +26,7 @@ const Cast = () => {
   console.log(castMovies);
   return (
     <div>
-      <div>++++Cast++++</div>
+      {/* <div>++++Cast++++</div> */}
       {castMovies.map((castMovie, index) => {
         if (castMovie.profile_path) {
           return (

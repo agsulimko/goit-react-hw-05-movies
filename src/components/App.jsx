@@ -6,7 +6,7 @@ import MoviesDetails from "../pages/MoviesDetails";
 
 import { Layout } from "./Layout";
 import Cast from "./Cast";
-import { Reviews } from "./Reviews";
+import Reviews from "./Reviews";
 
 export const App = () => {
   return (

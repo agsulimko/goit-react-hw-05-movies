@@ -1,10 +1,10 @@
 // import React, { useState, useEffect } from "react";
-import { getMoviesTrending } from "../api/api";
+import { getAllMovies } from "../api/api";
 import { Link } from "react-router-dom";
 
 const array = ["   a   ", "  b  ", "  c  ", "  d ", "  e  "];
 const Movies = (prev) => {
-  getMoviesTrending();
+  getAllMovies();
   // useEffect(() => { }, []);
   //   console.log(mov);
   return (

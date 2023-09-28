@@ -28,23 +28,43 @@ export const getMoviesTrending = async moveId => {
 };
 
 export const getCast = async moveId => {
-  const { data } = await axios(`3/movie/976573/credits`, {
+  const { data } = await axios(`3/movie/${moveId}/credits`, {
     params: {
       api_key: '0649efc971b913d6bfebf656f94b5c92',
       language: 'en-US',
-      // append_to_response: `${moveId}`,
+      // append_to_response: `976573`,
     },
   });
   console.log('Cast=', data);
   return data;
 };
-// {
-//   const { data } = await axios(`3/search/movie`, {
-//     params: {
-//       api_key: '0649efc971b913d6bfebf656f94b5c92',
-//       language: 'en-US',
 
-//       // moveId: `${value}`,
+export const getReviews = async moveId => {
+  const { data } = await axios(`3/movie/${moveId}/reviews`, {
+    params: {
+      api_key: '0649efc971b913d6bfebf656f94b5c92',
+      // language: 'en-US',
+      original_language: 'en-US',
+    },
+  });
+  console.log('Reviews =', data);
+  return data;
+};
 
-//       query: `${query}`,
-//     },
+// ('https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=0649efc971b913d6bfebf656f94b5c92');
+
+export const getAllMovies = async value => {
+  const { data } = await axios(`3/search/movie`, {
+    params: {
+      api_key: '0649efc971b913d6bfebf656f94b5c92',
+      // language: 'en-US',
+      // original_language: 'en-US',
+      query: `Jack + Reacher`,
+      // query: `${value}`,
+    },
+  });
+  console.log('getAllMovies=>>', data);
+  return data;
+};
+
+export default getAllMovies;
