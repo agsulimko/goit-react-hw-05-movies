@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import React, { useState, useEffect, Suspense } from "react";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { getMoviesTrending } from "../api/api";
+import css from "./MoviesDetails.module.css";
 const MoviesDetails = () => {
   // const params = useParams();
   const { moveId } = useParams();
-  // console.log("moveId=", moveId);
+  console.log("moveId=", moveId);
 
   const [title, setTitle] = useState(null);
   const [poster_path, setPoster_path] = useState(null);
@@ -13,6 +14,8 @@ const MoviesDetails = () => {
   const [vote_average, setVote_average] = useState(null);
   const [genres, setGenres] = useState([]);
   const [error, setError] = useState("");
+
+  const location = useLocation();
 
   const fetchMovies = async () => {
     try {
@@ -32,9 +35,9 @@ const MoviesDetails = () => {
       setVote_average(Math.round(vote_average * 10));
       setGenres((prevGenres) => [...genres]);
 
-      // console.log(poster_path);
-      // console.log(title);
-      // console.log(release_date);
+      console.log(poster_path);
+      console.log(title);
+      console.log(release_date);
     } catch (err) {
       setError(error.message);
     }
@@ -45,19 +48,26 @@ const MoviesDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [moveId]);
 
+  console.log(location);
   return (
-    <>
+    <div className={css.divGoBack}>
+      <Link
+        to={location.state?.from ?? "/movies"}
+        // to={location.state && location.state?.from ? location.state.from : "/"}
+      >
+        Go back
+      </Link>
+
+      {/* <Link to={location.state?.from ??'/movies'}> Go back</Link> */}
       <div>
         {/* Cтраница MoviesDetails : {moveId} */}
-
-        {/* <Link to="movies"> -Go back</Link> */}
         <img
           className="center-block img-responsive"
           width="240px"
           // height="320px"
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={title}
-          // data-reactid=".1.1.0.0.1.0.0.0"
+          data-reactid=".1.1.0.0.1.0.0.0"
           key="movie-poster"
         />
         <h2>{`${title}(${release_date})`}</h2>
@@ -68,23 +78,22 @@ const MoviesDetails = () => {
         {genres.map((genre, index) => {
           return <p key={index}>{genre.name} </p>;
         })}
-
-        <p>Additional information</p>
       </div>
-
-      <ul>
-        <li>
-          <p>Additional information</p>
-        </li>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
-      <Outlet />
-    </>
+      <div>
+        <p>Additional information</p>
+        <ul>
+          <li>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+        <Suspense fallback={<div>Laoding...</div>}>
+          <Outlet />
+        </Suspense>
+      </div>
+    </div>
   );
 };
 export default MoviesDetails;
