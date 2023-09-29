@@ -68,8 +68,14 @@ const MoviesDetails = () => {
         {genres.map((genre, index) => {
           return <p key={index}>{genre.name} </p>;
         })}
+
+        <p>Additional information</p>
       </div>
+
       <ul>
+        <li>
+          <p>Additional information</p>
+        </li>
         <li>
           <Link to="cast">Cast</Link>
         </li>
