@@ -6,7 +6,7 @@ import css from "./Movies.module.css";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 
 import { useSearchParams } from "react-router-dom";
 const Movies = () => {
@@ -97,9 +97,9 @@ const Movies = () => {
             variant="outlined"
             margin="dense"
           />
-          <Button onClick={() => fetchMovies()} variant="outlined">
+          {/* <Button onClick={() => fetchMovies()} variant="outlined">
             Search
-          </Button>
+          </Button> */}
         </Box>
 
         <Stack spacing={2} direction="row"></Stack>
