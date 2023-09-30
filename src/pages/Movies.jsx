@@ -88,7 +88,7 @@ const Movies = () => {
             name="title"
             size="small"
             sx={{ m: 1, width: "35ch" }}
-            style={{ backgroundColor: "white" }}
+            style={{ backgroundColor: "rgb(212, 242, 232)" }}
             className="form-control"
             onChange={updateQueryString}
             value={query || ""} // Устанавливаем пустую строку, если значение query равно null

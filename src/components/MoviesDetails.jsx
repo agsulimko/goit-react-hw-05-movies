@@ -34,9 +34,9 @@ const MoviesDetails = () => {
       setVote_average(Math.round(vote_average * 10));
       setGenres((prevGenres) => [...genres]);
 
-      console.log(poster_path);
-      console.log(title);
-      console.log(release_date);
+      // console.log(poster_path);
+      // console.log(title);
+      // console.log(release_date);
     } catch (err) {
       setError(error.message);
     }
@@ -47,7 +47,7 @@ const MoviesDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [moveId]);
 
-  console.log(location);
+  // console.log(location);
   return (
     <div className={css.divGoBack}>
       <Link

@@ -6,16 +6,15 @@ const Cast = () => {
   const { moveId } = useParams();
   //   console.log("moveId=", moveId);
   const [castMovies, setCast] = useState([]);
-  const [error, setError] = useState(null);
 
   const fetchCast = async () => {
     try {
       const { cast } = await getCast(moveId);
-      console.log(cast);
+      // console.log(cast);
       setCast((prevCast) => [...cast]);
       // console.log(castMovies);
     } catch (err) {
-      setError(error.message);
+      console.log(err.message);
     }
   };
 
