@@ -1,0 +1,16 @@
+.divCast{
+        display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 10px;
+}
+.cardCast{
+    border: 0.5px solid;
+    background-color: rgb(218, 232, 232);
+}
+
+.text
+{
+     width: 150px; 
+    text-align: center;
+}

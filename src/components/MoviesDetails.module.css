@@ -1,5 +1,29 @@
 .divGoBack {
-         display: flex;
-         flex-direction: column;
-         gap: 10px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+ .GoBack{
+margin: auto;
         }
+
+.divDetails{
+    display: flex;
+        flex-wrap: nowrap;
+        gap: 10px;
+        }
+
+        .listCast{
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            padding-left: 0;
+        }
+
+
+
+.title{
+    text-align: center;
+}
+        

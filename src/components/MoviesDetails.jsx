@@ -3,9 +3,8 @@ import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { getMoviesTrending } from "../api/api";
 import css from "./MoviesDetails.module.css";
 const MoviesDetails = () => {
-  // const params = useParams();
   const { moveId } = useParams();
-  console.log("moveId=", moveId);
+  // console.log("moveId=", moveId);
 
   const [title, setTitle] = useState(null);
   const [poster_path, setPoster_path] = useState(null);
@@ -52,6 +51,7 @@ const MoviesDetails = () => {
   return (
     <div className={css.divGoBack}>
       <Link
+        className={css.GoBack}
         to={location.state?.from ?? "/movies"}
         // to={location.state && location.state?.from ? location.state.from : "/"}
       >
@@ -59,29 +59,29 @@ const MoviesDetails = () => {
       </Link>
 
       {/* <Link to={location.state?.from ??'/movies'}> Go back</Link> */}
-      <div>
-        {/* Cтраница MoviesDetails : {moveId} */}
+      <div className={css.divDetails}>
         <img
           className="center-block img-responsive"
           width="240px"
-          // height="320px"
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={title}
           data-reactid=".1.1.0.0.1.0.0.0"
           key="movie-poster"
         />
-        <h2>{`${title}(${release_date})`}</h2>
-        <p>User Score:{` ${vote_average}%`}</p>
-        <h3>Overview</h3>
-        <>{overview}</>
-        <h3>Genres</h3>
-        {genres.map((genre, index) => {
-          return <p key={index}>{genre.name} </p>;
-        })}
+        <div>
+          <h2>{`${title}(${release_date})`}</h2>
+          <p>User Score:{` ${vote_average}%`}</p>
+          <h3>Overview</h3>
+          <>{overview}</>
+          <h3>Genres</h3>
+          {genres.map((genre, index) => {
+            return <p key={index}>{genre.name} </p>;
+          })}
+        </div>
       </div>
       <div>
-        <p>Additional information</p>
-        <ul>
+        <p className={css.title}>Additional information</p>
+        <ul className={css.listCast}>
           <li>
             <Link to="cast">Cast</Link>
           </li>

@@ -1,4 +1,5 @@
 // import { NavLink, Routes, Route, Outlet } from "react-router-dom";
+import css from "./Layout.module.css";
 
 import { Suspense } from "react";
 import { NavLink, Outlet } from "react-router-dom";
@@ -6,7 +7,7 @@ export const Layout = () => {
   return (
     <>
       <header>
-        <ul>
+        <ul className={css.listLayout}>
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
