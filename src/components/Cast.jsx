@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { getCast } from "../api/api";
 import { useParams } from "react-router-dom";
 import css from "./Cast.module.css";
+// import image from "../helper/placeholder_image_new1.png";
 const Cast = () => {
-  const { moveId } = useParams();
+  const { movieId } = useParams();
   //   console.log("moveId=", moveId);
   const [castMovies, setCast] = useState([]);
 
   const fetchCast = async () => {
     try {
-      const { cast } = await getCast(moveId);
+      const { cast } = await getCast(movieId);
       // console.log(cast);
       setCast((prevCast) => [...cast]);
       // console.log(castMovies);

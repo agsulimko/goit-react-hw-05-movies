@@ -1,8 +1,9 @@
 import Container from "@mui/material/Container";
 import React from "react";
 
+// import Home from "path/to/pages/Home";
 import { Routes, Route } from "react-router-dom";
-import { Layout } from "./Layout";
+import Layout from "./Layout";
 import { lazy } from "react";
 // import Home from "../pages/Home";
 // import Movies from "../pages/Movies";
@@ -25,7 +26,12 @@ export const App = () => {
           <Route index element={<Home />} />
 
           <Route path="movies" element={<Movies />} />
-          <Route path=":moveId" element={<MoviesDetails />}>
+          <Route path=":movieId" element={<MoviesDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+
+          <Route path="movies/:movieId" element={<MoviesDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>

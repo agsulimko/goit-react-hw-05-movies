@@ -6,7 +6,6 @@ const Reviews = () => {
   const { moveId } = useParams();
 
   const [reviewsMovies, setReviews] = useState([]);
-  const [error, setError] = useState(null);
 
   const fetchReviews = async () => {
     try {
@@ -14,7 +13,7 @@ const Reviews = () => {
 
       setReviews((prevReviews) => [...results]);
     } catch (err) {
-      setError(error.message);
+      console.log(err.message);
     }
   };
 
@@ -26,7 +25,6 @@ const Reviews = () => {
   if (reviewsMovies.length) {
     return (
       <div>
-        {/* ++++Reviews++++ */}
         {reviewsMovies.map((reviewsMovie, index) => {
           return (
             <div key={index}>
@@ -41,7 +39,6 @@ const Reviews = () => {
     return (
       <div>
         <p className={css.ReviewsNot}>
-          {" "}
           We don't have any reviews for this movie.
         </p>
       </div>

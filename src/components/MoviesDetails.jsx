@@ -1,10 +1,15 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense, useRef } from "react";
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { getMoviesTrending } from "../api/api";
 import css from "./MoviesDetails.module.css";
 const MoviesDetails = () => {
-  const { moveId } = useParams();
-  // console.log("moveId=", moveId);
+  const location = useLocation();
+  const backLinkLocationRef = useRef(
+    (location.state && location.state.from) ?? "/movies"
+  );
+  // console.log(location);
+  // console.log(backLinkLocationRef);
+  const { movieId } = useParams();
 
   const [title, setTitle] = useState(null);
   const [poster_path, setPoster_path] = useState(null);
@@ -13,8 +18,6 @@ const MoviesDetails = () => {
   const [vote_average, setVote_average] = useState(null);
   const [genres, setGenres] = useState([]);
   const [error, setError] = useState("");
-
-  const location = useLocation();
 
   const fetchMovies = async () => {
     try {
@@ -25,7 +28,7 @@ const MoviesDetails = () => {
         release_date,
         vote_average,
         genres,
-      } = await getMoviesTrending(moveId);
+      } = await getMoviesTrending(movieId);
       setTitle(title);
       setPoster_path(poster_path);
       setRelease_date(release_date.slice(0, 4));
@@ -45,17 +48,20 @@ const MoviesDetails = () => {
   useEffect(() => {
     fetchMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [moveId]);
+  }, [movieId]);
 
   // console.log(location);
   return (
     <div className={css.divGoBack}>
       <Link
         className={css.GoBack}
-        to={location.state?.from ?? "/movies"}
+        to={backLinkLocationRef.current}
+        // to={(location.state && location.state.from) ?? "/movies"}
+        // to={location.state?.from ?? "/movies"}
+        // to={location.state?.from ?? "/"}
         // to={location.state && location.state?.from ? location.state.from : "/"}
       >
-        Go back
+        <button type="button">Go back</button>
       </Link>
 
       {/* <Link to={location.state?.from ??'/movies'}> Go back</Link> */}
@@ -82,6 +88,12 @@ const MoviesDetails = () => {
       <div>
         <p className={css.title}>Additional information</p>
         <ul className={css.listCast}>
+          {/* <li>
+            <NavLink to={`/movies/${moveId}/cast`}>Cast</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/movies/${moveId}/reviews`}>Reviews</NavLink>
+          </li> */}
           <li>
             <Link to="cast">Cast</Link>
           </li>

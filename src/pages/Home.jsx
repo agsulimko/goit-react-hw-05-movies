@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getAllMoviesTrending } from "../api/api";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import css from "./Home.module.css";
 
 const Home = () => {
+  const location = useLocation();
   const [movies, setMovies] = useState([]);
 
   const fetchMovies = async () => {
@@ -26,7 +27,7 @@ const Home = () => {
       <h1>Trending today</h1>
       {movies.map((mov, index) => {
         return (
-          <Link key={index} to={`${mov.id}`}>
+          <Link key={index} to={`${mov.id}`} state={{ from: location }}>
             {mov.title}
           </Link>
         );
