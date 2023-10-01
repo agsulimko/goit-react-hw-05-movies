@@ -53,14 +53,7 @@ const MoviesDetails = () => {
   // console.log(location);
   return (
     <div className={css.divGoBack}>
-      <Link
-        className={css.GoBack}
-        to={backLinkLocationRef.current}
-        // to={(location.state && location.state.from) ?? "/movies"}
-        // to={location.state?.from ?? "/movies"}
-        // to={location.state?.from ?? "/"}
-        // to={location.state && location.state?.from ? location.state.from : "/"}
-      >
+      <Link className={css.GoBack} to={backLinkLocationRef.current}>
         <button type="button">Go back</button>
       </Link>
 
