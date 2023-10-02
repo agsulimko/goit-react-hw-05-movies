@@ -3,13 +3,13 @@ import { getReviews } from "../api/api";
 import { useParams } from "react-router-dom";
 import css from "./Reviews.module.css";
 const Reviews = () => {
-  const { moveId } = useParams();
+  const { movieId } = useParams();
 
   const [reviewsMovies, setReviews] = useState([]);
 
   const fetchReviews = async () => {
     try {
-      const { results } = await getReviews(moveId);
+      const { results } = await getReviews(movieId);
 
       setReviews((prevReviews) => [...results]);
     } catch (err) {
