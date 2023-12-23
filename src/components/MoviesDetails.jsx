@@ -61,7 +61,8 @@ const MoviesDetails = () => {
       <div className={css.divDetails}>
         <img
           className="center-block img-responsive"
-          width="240px"
+          width="350px"
+          height="100%"
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={title}
           data-reactid=".1.1.0.0.1.0.0.0"

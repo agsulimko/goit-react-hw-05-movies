@@ -20,7 +20,7 @@ const Reviews = lazy(() => import("./Reviews"));
 
 export const App = () => {
   return (
-    <Container maxWidth="sm">
+    <Container fixed>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
