@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { getCast } from "../api/api";
 import { useParams } from "react-router-dom";
 import css from "./Cast.module.css";
-// import image from "../helper/placeholder_image_new1.png";
+import defaultImage from "../helper/imgonline-com-ua-Resize-uoGGMedYun.jpg";
+
+// );
+
 const Cast = () => {
   const { movieId } = useParams();
   //   console.log("moveId=", moveId);
@@ -21,6 +24,7 @@ const Cast = () => {
 
   useEffect(() => {
     fetchCast();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -42,8 +46,21 @@ const Cast = () => {
               <p className={css.text}>{`Character: ${castMovie.character}`}</p>
             </div>
           );
+        } else {
+          return (
+            <div className={css.cardCast} key={index}>
+              <img
+                className="center-block img-responsive defaultImage"
+                width="150px"
+                height="225px"
+                src={defaultImage}
+                alt={castMovie.name}
+              />
+              <p className={css.text}>{castMovie.name}</p>
+              <p className={css.text}>{`Character: ${castMovie.character}`}</p>
+            </div>
+          );
         }
-        return null;
       })}
     </div>
   );
