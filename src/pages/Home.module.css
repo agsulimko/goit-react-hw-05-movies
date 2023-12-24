@@ -1,7 +1,21 @@
+h1{
+    text-align: center;
+}
 .homeMovies{
     
 display: flex;
 flex-direction: column;
 gap:10px;
+
+}
+.home{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+ gap:20px;
+}
+
+.home_div{
+width: 150px;
 
 }

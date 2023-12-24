@@ -114,7 +114,17 @@ const Movies = () => {
           return (
             <li key={index}>
               <Link to={`/${mov.id}`} state={{ from: location }}>
-                {mov.title}
+              <div className={css.home_div}>
+           <img
+          className="center-block img-responsive"
+          width="150px"
+          height="100%"
+          src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+          alt={mov.title}
+          data-reactid=".1.1.0.0.1.0.0.0"
+          key="movie-poster"
+        />
+        {mov.title}</div> 
               </Link>
             </li>
           );

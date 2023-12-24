@@ -1,7 +1,9 @@
 .listMovies{
     display: flex;
-    flex-direction: column;
-    gap:10px;
+    display: flex;
+flex-wrap: wrap;
+ gap:20px;
+ justify-content: center;
     /* background-color: rgb(212, 242, 232); */
 }
 /* .divGoBack{
@@ -9,3 +11,13 @@
         flex-direction: column;
         gap: 10px;
 } */
+.home{
+    display: flex;
+    flex-wrap: wrap;
+     gap:20px;
+    }
+    
+    .home_div{
+    width: 150px;
+    
+    }
