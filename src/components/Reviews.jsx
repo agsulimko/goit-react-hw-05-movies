@@ -24,7 +24,7 @@ const Reviews = () => {
 
   if (reviewsMovies.length) {
     return (
-      <div>
+      <div className={css.container} >
         {reviewsMovies.map((reviewsMovie, index) => {
           return (
             <div key={index}>

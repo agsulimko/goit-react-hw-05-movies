@@ -1,11 +1,6 @@
 @import-normalize; /* bring in normalize.css styles */
 
 
-body {
-  font-family: sans-serif;
-  line-height: 1.5;
-}
-
 h1,
 h2,
 h3,
@@ -37,7 +32,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(180, 219, 220);
+  background-color: rgb(210, 219, 219); 
+  font-family: sans-serif;
+  line-height: 1.5;
+  max-width: 1400px;
+  margin: auto; 
+ /* padding: 0 15px; */
 }
 
 code {
@@ -49,4 +49,135 @@ ul {
 }
 a{
   text-decoration: none;
+}
+
+/* .container{
+  max-width: 1400px;
+   margin: auto; 
+  padding: 0 15px;
+  /* background-color: #4f4f68; 
+} */
+/*  */
+
+.theme-dark {
+  color: #f2f2f2;
+  background-color:#292727;}
+
+.theme-light {
+  color: #080808;
+  background-color: #eae9f2;
+}
+
+.theme-light main{
+  color:  #110850;
+  background-color: #eae9f2;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+} 
+
+.theme-dark main {
+  color:  #eae9f2;
+  background-color: #292727;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.theme-dark div {
+  color:  #eae9f2;
+  background-color: #292727;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+.theme-dark input {
+  color:  #0d0d0e;
+  background-color: #7e7575;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.theme-light header{
+  color:  #110850;
+  background-color: #5e5a81;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+.theme-dark header{
+  color:  #110850;
+  background-color: #6a6a6d;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+.theme-dark a{
+  color:  #e1dfee;
+  
+}
+
+
+/*========== 
+Переключатель темных и светлых тем======*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: 0 0px 15px #2020203d;
+  background: white url('https://i.ibb.co/FxzBYR9/night.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

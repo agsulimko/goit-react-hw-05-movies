@@ -14,9 +14,23 @@ const StyledLink = styled(NavLink)`
 `;
 
 const Layout = () => {
+  function setTheme(themeName) {
+    localStorage.setItem('theme', themeName);
+    document.documentElement.className = themeName;
+  }
+  
+  // function to toggle between light and dark theme
+  function toggleTheme() {
+    if (localStorage.getItem('theme') === 'theme-dark') {
+        setTheme('theme-light');
+    } else {
+        setTheme('theme-dark');
+    }
+  }
+
   return (
-    <>
-      <header>
+    <div className={css.container}>
+      <header className={css.header}>
         <ul className={css.listLayout}>
           <li>
             <StyledLink
@@ -40,14 +54,17 @@ const Layout = () => {
             </StyledLink>
           </li>
         </ul>
+        <label id="switch" className={css.switch}>
+            <input type="checkbox" onChange={toggleTheme}id="slider"/>
+            <span className={css.slider + ' ' + css.round}></span>
+        </label>
       </header>
-
       <main>
         <Suspense fallback={<div>Laoding...</div>}>
           <Outlet />
         </Suspense>
       </main>
-    </>
+    </div>
   );
 };
 export default Layout;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAllMoviesTrending } from "../api/api";
 import { Link, useLocation } from "react-router-dom";
 import css from "./Home.module.css";
+// import toggleTheme from "script";
 
 const Home = () => {
   const location = useLocation();
@@ -24,7 +25,12 @@ const Home = () => {
 
   return (
     <div className={css.homeMovies}>
+      {/* <label id="switch" class="switch">
+            <input type="checkbox" onchange={toggleTheme()} id="slider"/>
+            <span class="slider round"></span>
+        </label> */}
       <h1>Trending today</h1>
+
       <div className={css.home}>  
       {movies.map((mov, index) => {
         return (
@@ -45,6 +51,7 @@ const Home = () => {
         );
       })}
       </div>
+      <script src="script.js"></script>
     </div>
   );
 };

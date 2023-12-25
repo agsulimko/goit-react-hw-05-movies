@@ -1,4 +1,4 @@
-import Container from "@mui/material/Container";
+// import Container from "@mui/material/Container";
 import React from "react";
 
 // import Home from "path/to/pages/Home";
@@ -21,7 +21,7 @@ const Reviews = lazy(() => import("./Reviews"));
 
 export const App = () => {
   return (
-    <Container fixed>
+    <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -40,6 +40,6 @@ export const App = () => {
           </Route>
         </Route>
       </Routes>
-    </Container>
+    </>
   );
 };
