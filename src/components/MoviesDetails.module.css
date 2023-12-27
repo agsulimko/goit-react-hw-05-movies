@@ -13,6 +13,7 @@ margin: auto;
     display: flex;
         flex-wrap: nowrap;
         gap: 10px;
+        align-items: flex-start
         }
 
         .listCast{
@@ -22,8 +23,11 @@ margin: auto;
             padding-left: 0;
         }
 
+.img{
 
-
+    object-fit: contain;
+}
+/* fill | contain | cover | scale-down | none */
 .title{
     text-align: center;
 }

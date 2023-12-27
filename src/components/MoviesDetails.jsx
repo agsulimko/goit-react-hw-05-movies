@@ -60,9 +60,10 @@ const MoviesDetails = () => {
       {/* <Link to={location.state?.from ??'/movies'}> Go back</Link> */}
       <div className={css.divDetails}>
         <img
-          className="center-block img-responsive"
+          // className="center-block img-responsive"
+          className={css.img}
           width="250px"
-          height="100%"
+          // height="100%"
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={title}
           data-reactid=".1.1.0.0.1.0.0.0"

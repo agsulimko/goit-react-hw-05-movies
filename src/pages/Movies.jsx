@@ -82,8 +82,8 @@ const Movies = () => {
             justifyContent: "center",
           }}
         >
-          <TextField
-            // className="input"
+          <TextField 
+            className={css.input}
             type="text"
             //  autocomplete="off"
             //  autofocus
@@ -91,8 +91,8 @@ const Movies = () => {
             name="title"
             size="small"
             sx={{ m: 1, width: "35ch" }}
-            style={{ backgroundColor: "rgb(212, 242, 232)" }}
-            className="form-control"
+             style={{ backgroundColor: "#7e7575", color: "white" }}
+            // className="form-control"
             onChange={handleInputQuery}
             value={query || ""}
             // Устанавливаем пустую строку, если значение query равно null

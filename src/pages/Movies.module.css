@@ -21,3 +21,6 @@ flex-wrap: wrap;
     width: 150px;
     
     }
+    .theme-light  .input{
+        /* background-color: #7e7575; */
+    }
